@@ -15,7 +15,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - uses: actions/checkout@v3
-      - run: docker build -t alwells/react-test . #-f Dockerfile.dev .
+      - run: docker build -t alwells/react-test -f Dockerfile.dev .
       - run: docker run -e CI=true alwells/react-test npm test
 
       - name: Generate deployment package
